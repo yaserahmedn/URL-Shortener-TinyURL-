@@ -31,7 +31,7 @@ app.post('/', (req,res,done) =>{
 
 	data.save()
 	.then(()=>{
-		str ='localhost:3000/?id='+data.tiny_url;
+		str ='localhost:3000/'+data.tiny_url;
 		console.log(str);
 		res.send(str);
 		done();
@@ -42,7 +42,7 @@ app.post('/', (req,res,done) =>{
 
 });
 
-app.get('/*', (req, res, done)=>{
+app.get('/:id', (req, res, done)=>{
 	//res.send('Fetch tinyurl and send back');
 	var id=req.param('id');
 	console.log(id);
